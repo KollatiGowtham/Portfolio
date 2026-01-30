@@ -22,6 +22,8 @@ import ai from '@/assets/gallery/Ai ignite poster.jpg';
 import ai1 from '@/assets/gallery/Ai ignite stage.jpg';
 import ai2 from '@/assets/gallery/Ai ignite team.jpeg';
 import ai3 from '@/assets/gallery/Ai ignite team1.jpeg';
+import img7 from '@/assets/gallery/te.jpeg';
+import ai4 from '@/assets/gallery/ign.jpeg';
 
 
 
@@ -36,11 +38,11 @@ const Gallery = () => {
     },
     {
       name: 'TechSprint Hackathon',
-      photos: [img1, img2, img3, img4, img5, img6],
+      photos: [img7,img1, img2, img3, img4, img5, img6],
     },
     {
       name: 'AI Ignite',
-      photos: [ai2, ai, ai1, ai3],
+      photos: [ai2, ai, ai1, ai3,ai4],
     },
    
   ];

@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronRight } from 'lucide-react';
+import { AlignJustify, X, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -17,6 +18,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,8 +35,8 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled 
-          ? 'glass-effect shadow-nav py-3' 
+        scrolled || (isMobile && isOpen)
+          ? 'glass-effect shadow-nav py-3'
           : 'bg-transparent py-5'
       }`}
     >
@@ -80,7 +82,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <motion.button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-lg text-foreground hover:text-primary hover:bg-secondary/50 transition-all duration-300"
+            className="lg:hidden p-2 rounded-lg text-foreground hover:text-primary bg-secondary/50 hover:bg-secondary/50 border border-border transition-all duration-300"
             aria-label="Toggle menu"
             whileTap={{ scale: 0.95 }}
           >
@@ -103,7 +105,7 @@ const Navbar = () => {
                   exit={{ rotate: -90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Menu size={24} />
+                  <AlignJustify size={24} />
                 </motion.div>
               )}
             </AnimatePresence>
