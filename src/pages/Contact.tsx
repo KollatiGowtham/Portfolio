@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Send, Mail, Phone, Github, Linkedin, ExternalLink, CheckCircle, MessageCircle } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import SectionTitle from '@/components/ui/SectionTitle';
+import { CornerStickers } from '@/components/ui/CornerStickers';
 import { z } from 'zod';
 
 const contactSchema = z.object({
@@ -70,10 +71,15 @@ const Contact = () => {
     }
   };
 
+  const cornerStickers = [
+    { id: 'contact', label: 'Contact', icon: MessageCircle, ariaLabel: 'Jump to Contact section' },
+  ];
+
   return (
     <Layout>
+      <CornerStickers stickers={cornerStickers} initialDelay={0.5} />
       <div className="pt-24 pb-16">
-        <section className="section-padding">
+        <section id="contact" className="section-padding scroll-mt-24">
           <div className="container-custom">
             <SectionTitle
               title="Contact Me"

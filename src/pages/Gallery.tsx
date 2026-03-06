@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Images } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import SectionTitle from '@/components/ui/SectionTitle';
 import ImageLightbox from '@/components/ui/ImageLightbox';
+import { CornerStickers } from '@/components/ui/CornerStickers';
 import img1 from '@/assets/gallery/img1.jpeg';
 import img2 from '@/assets/gallery/img2.jpeg';
 import img3 from '@/assets/gallery/img3.jpeg';
@@ -22,8 +24,23 @@ import ai from '@/assets/gallery/Ai ignite poster.jpg';
 import ai1 from '@/assets/gallery/Ai ignite stage.jpg';
 import ai2 from '@/assets/gallery/Ai ignite team.jpeg';
 import ai3 from '@/assets/gallery/Ai ignite team1.jpeg';
+<<<<<<< HEAD
 import img7 from '@/assets/gallery/te.jpeg';
 import ai4 from '@/assets/gallery/ign.jpeg';
+=======
+import sicmit1 from '@/assets/gallery/sicmit/1.jpeg';
+import sicmit2 from '@/assets/gallery/sicmit/2.jpeg';
+import sicmit3 from '@/assets/gallery/sicmit/3.jpeg';
+import sicmit4 from '@/assets/gallery/sicmit/4.jpeg';
+import sicmit5 from '@/assets/gallery/sicmit/5.jpeg';
+import sicmit6 from '@/assets/gallery/sicmit/6.jpeg';
+import sicmit7 from '@/assets/gallery/sicmit/7.jpeg';
+import t1 from '@/assets/gallery/t1.jpeg';
+import t2 from '@/assets/gallery/t2.jpeg';
+import t3 from '@/assets/gallery/t3.jpeg';
+import t4 from '@/assets/gallery/t4.jpeg';
+import t5 from '@/assets/gallery/t5.jpeg';
+>>>>>>> f2e865b (updated)
 
 
 
@@ -32,6 +49,14 @@ const Gallery = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const events = [
+    {
+      name: 'Technosprint Info Solutions Annual Meet',
+      photos: [t3, t2, t1, t4, t5],
+    },
+    {
+      name: 'SCIMIT 2026 Hackathon',
+      photos: [sicmit1, sicmit2, sicmit3, sicmit4, sicmit5, sicmit6, sicmit7],
+    },
     {
       name: 'AYA Hackathon IIIT Benguluru',
       photos: [ben2, ben6, ben8, ben1, ben9, ben7, ben3, ben4, ben5],
@@ -64,10 +89,15 @@ const Gallery = () => {
     }
   };
 
+  const cornerStickers = [
+    { id: 'gallery', label: 'Gallery', icon: Images, ariaLabel: 'Jump to Gallery section' },
+  ];
+
   return (
     <Layout>
+      <CornerStickers stickers={cornerStickers} initialDelay={0.5} />
       <div className="pt-24 pb-16">
-        <section className="section-padding">
+        <section id="gallery" className="section-padding scroll-mt-24">
           <div className="container-custom">
             <SectionTitle
               title="Gallery"

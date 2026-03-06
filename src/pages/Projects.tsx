@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Sparkles } from 'lucide-react';
+import { ExternalLink, Github, Sparkles, FolderGit2, Rocket } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import SectionTitle from '@/components/ui/SectionTitle';
-import coldmailImg from '@/assets/projects/coldmail.jpg';
+import { CornerStickers } from '@/components/ui/CornerStickers';
+import coldmailImg from '@/assets/projects/coldmail.png';
 import appointmentImg from '@/assets/projects/appointment.jpg';
 import handloomsImg from '@/assets/projects/handlooms.png';
 import datarecoveryImg from '@/assets/projects/datarecovery.jpg';
+import languages from '@/assets/projects/languages.png';
 import quiz from '@/assets/projects/quiz.png';
 
 const Projects = () => {
@@ -15,8 +17,8 @@ const Projects = () => {
       description: 'An intelligent email automation tool that helps businesses streamline their outreach campaigns with personalized cold emails and analytics tracking.',
       image: coldmailImg,
       tech: ['Python', 'Flask', 'JavaScript', 'PostgreSQL'],
-      liveUrl: '#',
-      githubUrl: '#',
+      liveUrl: 'https://coldemailui.netlify.app/',
+      githubUrl: 'https://github.com/KollatiGowtham/Coldmail_UI',
     },
     {
       title: 'Appointment Booking Web App',
@@ -33,6 +35,14 @@ const Projects = () => {
       tech: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL'],
       liveUrl: 'https://kkhandlooms.netlify.app/',
       githubUrl: 'https://github.com/KollatiGowtham/Kalamkari',
+    },
+    {
+      title: 'Programming Language Learing System',
+      description: 'A web application for learning programming languages with interactive quizzes and practice exercises.',
+      image: languages,
+      tech: ['HTML', 'CSS', 'JavaScript'],
+      liveUrl: 'https://brocodelearn.netlify.app/',
+      githubUrl: 'https://github.com/KollatiGowtham/Programming_language_website',
     },
     {
       title: 'Data Recovery using XFS in Linux',
@@ -70,11 +80,17 @@ const Projects = () => {
     },
   ];
 
+  const cornerStickers = [
+    { id: 'projects', label: 'Projects', icon: FolderGit2, ariaLabel: 'Jump to Projects section' },
+    { id: 'upcoming', label: 'Upcoming', icon: Rocket, ariaLabel: 'Jump to Upcoming Projects section' },
+  ];
+
   return (
     <Layout>
+      <CornerStickers stickers={cornerStickers} initialDelay={0.5} />
       <div className="pt-24 pb-16">
         {/* Projects Section */}
-        <section className="section-padding">
+        <section id="projects" className="section-padding scroll-mt-24">
           <div className="container-custom">
             <SectionTitle
               title="Projects"
@@ -147,7 +163,7 @@ const Projects = () => {
         </section>
 
         {/* Upcoming Projects Section */}
-        <section className="section-padding bg-secondary/30">
+        <section id="upcoming" className="section-padding bg-secondary/30 scroll-mt-24">
           <div className="container-custom">
             <SectionTitle
               title="Upcoming Projects"

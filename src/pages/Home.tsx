@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Briefcase, Trophy, GraduationCap, Code2, Sparkles, Github, Linkedin, ExternalLink } from 'lucide-react';
+import { ArrowRight, Download, Briefcase, Trophy, GraduationCap, Code2, Sparkles, Github, Linkedin, ExternalLink, Award, Languages } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import profileImage from '@/assets/profile.jpeg';
+import achievementAwardImg from '@/assets/achivement.png';
+import internshipCertificateImg from '@/assets/gallery/t3.jpeg';
 import SectionTitle from '@/components/ui/SectionTitle';
+import { CornerStickers } from '@/components/ui/CornerStickers';
 
 const Home = () => {
   const highlights = [
@@ -11,7 +14,14 @@ const Home = () => {
       icon: Briefcase,
       label: 'Internship',
       value: 'Associate Trainee',
-      sublabel: 'TechnoSprint Info Solutions',
+      sublabel: 'TechnoSprint Info Solutions — strong execution, consistency & leadership.',
+    },
+    {
+      icon: Trophy,
+      label: 'Award',
+      value: 'Operational Excellence Award',
+      sublabel: 'Honored during internship at TechnoSprint Info Solutions',
+      image: achievementAwardImg,
     },
     {
       icon: Trophy,
@@ -22,13 +32,13 @@ const Home = () => {
     {
       icon: GraduationCap,
       label: 'CGPA',
-      value: '8.96',
+      value: '9.04',
       sublabel: 'B.Tech Computer & Communication Engineering',
     },
   ];
 
   const skills = {
-    intermediate: ['Java', 'Python', 'C', 'JavaScript', 'Linux', 'Full-Stack', 'PowerBI'],
+    intermediate: ['Java', 'Python', 'C', 'JavaScript', 'Linux', 'Full-Stack', 'PowerBI', 'AWS'],
     beginner: ['Go', 'Shell Script', 'Blockchain', 'Cloud Computing'],
   };
 
@@ -92,8 +102,16 @@ const Home = () => {
     },
   };
 
+  const cornerStickers = [
+    { id: 'internship', label: 'Internship', icon: Briefcase, ariaLabel: 'Jump to Internship section' },
+    { id: 'skills', label: 'Skills', icon: Code2, ariaLabel: 'Jump to Skills section' },
+    { id: 'languages', label: 'Languages', icon: Languages, ariaLabel: 'Jump to Languages section' },
+  ];
+
   return (
     <Layout>
+      <CornerStickers stickers={cornerStickers} initialDelay={1} />
+
       {/* Hero Section */}
       <section className="min-h-screen flex items-center pt-20 relative overflow-hidden">
         {/* Animated background */}
@@ -241,7 +259,7 @@ const Home = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
-            className="grid md:grid-cols-3 gap-6"
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {highlights.map((item, index) => (
               <motion.div
@@ -255,10 +273,14 @@ const Home = () => {
                 
                 <div className="relative flex items-start gap-4">
                   <motion.div 
-                    className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
+                    className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center flex-shrink-0 overflow-hidden group-hover:scale-110 transition-transform duration-300"
                     whileHover={{ rotate: [0, -5, 5, 0] }}
                   >
-                    <item.icon className="w-7 h-7 text-primary" />
+                    {'image' in item && item.image ? (
+                      <img src={item.image} alt={item.value} className="w-full h-full object-cover" />
+                    ) : (
+                      <item.icon className="w-7 h-7 text-primary" />
+                    )}
                   </motion.div>
                   <div>
                     <p className="text-sm text-muted-foreground mb-1">{item.label}</p>
@@ -272,8 +294,80 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Internship Experience Section */}
+      <section id="internship" className="py-16 bg-gradient-to-b from-background to-secondary/20 relative overflow-hidden scroll-mt-24">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <motion.div
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ type: 'spring' }}
+              className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 mb-4"
+            >
+              <Briefcase className="w-8 h-8 text-primary" />
+            </motion.div>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Internship <span className="gradient-text">Experience</span>
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              My journey as an Associate Trainee and the recognition received
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-5xl mx-auto"
+          >
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-card rounded-2xl p-6 md:p-10 shadow-card border border-border hover:border-primary/30 transition-colors duration-300">
+              {/* Content */}
+              <div>
+                <div className="flex items-center gap-2 mb-4">
+                  <Award className="w-5 h-5 text-primary" />
+                  <span className="text-sm font-semibold text-primary">TechnoSprint Info Solutions</span>
+                </div>
+                <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">
+                  Associate Trainee
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  During my internship I focused on strong execution, consistency, and leadership. 
+                  I contributed to real-world projects and was honored with the{' '}
+                  <span className="text-foreground font-medium">Operational Excellence Award</span> for 
+                  outstanding performance and dedication.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  The experience strengthened my technical and professional skills and gave me 
+                  hands-on exposure to industry practices at TechnoSprint Info Solutions.
+                </p>
+              </div>
+              {/* Certificate photo */}
+              <div className="relative group flex justify-center md:justify-end">
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  className="relative rounded-xl overflow-hidden border-2 border-border shadow-xl bg-muted/30"
+                >
+                  <img
+                    src={internshipCertificateImg}
+                    alt="Internship Appreciation Certificate - TechnoSprint Info Solutions"
+                    className="w-full max-w-sm object-contain rounded-lg"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-xl" />
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Social Links Section */}
-      <section className="py-16">
+      <section id="skills" className="py-16 scroll-mt-24">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -530,7 +624,7 @@ const Home = () => {
       </section>
 
       {/* Languages Section */}
-      <section className="section-padding">
+      <section id="languages" className="section-padding scroll-mt-24">
         <div className="container-custom">
           <SectionTitle title="Languages" subtitle="My linguistic skills" />
 

@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion';
-import { GraduationCap, Calendar, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { GraduationCap, Calendar, User, Briefcase, ExternalLink, Github, FolderGit2 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import SectionTitle from '@/components/ui/SectionTitle';
+import { CornerStickers } from '@/components/ui/CornerStickers';
 
 const About = () => {
   const education = [
-    { degree: 'B.Tech Computer and Communication [CCE]', institution: 'Sri Manakula Vinayagar Engineering College', score: 'CGPA: 8.96', year: '2023-2027' },
+    { degree: 'B.Tech Computer and Communication [CCE]', institution: 'Sri Manakula Vinayagar Engineering College', score: 'CGPA: 9.04', year: '2023-2027' },
     { degree: 'Class XII', institution: 'Jawahar Navodaya Vidyalaya', score: '78.9%', year: '2023' },
     { degree: 'Class X', institution: 'Jawahar Navodaya Vidyalaya', score: '88.8%', year: '2021' },
   ];
@@ -23,11 +25,45 @@ const About = () => {
     ],
   };
 
+  const projects = [
+    {
+      title: 'ColdMail Automation',
+      liveUrl: 'https://coldemailui.netlify.app/',
+      githubUrl: 'https://github.com/KollatiGowtham/Coldmail_UI',
+    },
+    {
+      title: 'Appointment Booking Web App',
+      liveUrl: 'https://gowtham-hospital-appointment.netlify.app/',
+      githubUrl: 'https://github.com/KollatiGowtham/Appontment_Booking',
+    },
+    {
+      title: 'Handlooms Business Website',
+      liveUrl: 'https://kkhandlooms.netlify.app/',
+      githubUrl: 'https://github.com/KollatiGowtham/Kalamkari',
+    },
+    {
+      title: 'Programming Language Learning System',
+      liveUrl: 'https://brocodelearn.netlify.app/',
+      githubUrl: 'https://github.com/KollatiGowtham/Programming_language_website',
+    },
+    {
+      title: 'Interactive Quiz App',
+      liveUrl: 'https://gowthamkollatiquiz.netlify.app/',
+      githubUrl: 'https://github.com/KollatiGowtham/Quiz12',
+    },
+  ];
+
+  const cornerStickers = [
+    { id: 'about', label: 'About', icon: User, ariaLabel: 'Jump to About section' },
+    { id: 'experience', label: 'Experience', icon: Briefcase, ariaLabel: 'Jump to Experience section' },
+    { id: 'projects', label: 'Work', icon: FolderGit2, ariaLabel: 'Jump to Project Links' },
+  ];
   return (
     <Layout>
+      <CornerStickers stickers={cornerStickers} initialDelay={0.5} />
       <div className="pt-24 pb-16">
         {/* About Section */}
-        <section className="section-padding">
+        <section id="about" className="section-padding scroll-mt-24">
           <div className="container-custom">
             <SectionTitle title="About Me" subtitle="Get to know me better" />
 
@@ -86,7 +122,7 @@ const About = () => {
         </section>
 
         {/* Experience Section */}
-        <section className="section-padding">
+        <section id="experience" className="section-padding scroll-mt-24">
           <div className="container-custom">
             <SectionTitle title="Experience" subtitle="My professional journey" />
 
@@ -125,6 +161,68 @@ const About = () => {
                     </motion.li>
                   ))}
                 </ul>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Projects Section */}
+        <section id="projects" className="section-padding scroll-mt-24">
+          <div className="container-custom">
+            <SectionTitle title="Projects" subtitle="Links to my work" />
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-3xl mx-auto"
+            >
+              <div className="bg-card rounded-2xl p-8 shadow-card border border-border">
+                <div className="space-y-4">
+                  {projects.map((project, index) => (
+                    <motion.div
+                      key={project.title}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.06 }}
+                      className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-4 bg-secondary/50 rounded-xl border border-border/60"
+                    >
+                      <div className="font-medium text-foreground">{project.title}</div>
+
+                      <div className="flex flex-wrap gap-2">
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary text-primary-foreground text-sm font-medium rounded-lg hover:bg-primary/90 transition-colors"
+                        >
+                          <ExternalLink size={14} />
+                          Live
+                        </a>
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-background text-foreground text-sm font-medium rounded-lg border border-border hover:border-primary/40 hover:text-primary transition-colors"
+                        >
+                          <Github size={14} />
+                          GitHub
+                        </a>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <div className="mt-6 flex justify-center">
+                  <Link
+                    to="/projects"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-secondary text-secondary-foreground font-medium rounded-lg hover:bg-secondary/80 transition-colors border border-border"
+                  >
+                    View all projects
+                    <FolderGit2 size={16} />
+                  </Link>
+                </div>
               </div>
             </motion.div>
           </div>

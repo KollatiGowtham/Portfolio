@@ -4,6 +4,7 @@ import { Award, ExternalLink, ZoomIn } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import SectionTitle from '@/components/ui/SectionTitle';
 import ImageLightbox from '@/components/ui/ImageLightbox';
+import { CornerStickers } from '@/components/ui/CornerStickers';
 import img from '@/assets/certificates/IT.jpg';
 import img1 from '@/assets/certificates/DBMS.jpg';
 import img2 from '@/assets/certificates/CSA.jpg';
@@ -20,19 +21,38 @@ import img12 from '@/assets/certificates/greenolympiad.jpeg';
 import img13 from '@/assets/certificates/yiuth.jpeg';
 import img14 from '@/assets/certificates/workshop.jpeg';
 import img15 from '@/assets/certificates/code.jpeg';
+<<<<<<< HEAD
 import img16 from '@/assets/certificates/te.jpeg';
 import img17 from '@/assets/certificates/grad.png';
+=======
+import img16 from '@/assets/certificates/gfgcloud.jpg';
+import img17 from '@/assets/certificates/t3.jpeg';
+>>>>>>> f2e865b (updated)
 const Certificates = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const certificates = [
     { 
-      title: 'Appreciation Certificate ', 
+      title: 'AWS Cloud Practitioner', 
+      image: img16, 
+      year: '2026',
+      issuer: 'Geeks For Geeks',
+      description: 'Completed AWS Cloud Practitioner- Self Paced course offered by GFG'
+    },
+    { 
+      title: 'Appreciation Certificate', 
       image: img5, 
       year: '2025',
       issuer: 'Technosprint Info Solutions',
       description: 'Awarded in appreciation of outstanding contributions and performance at Technosprint Info Solutions'
+    },
+    { 
+      title: 'Operational Excellence Award', 
+      image: img17, 
+      year: '2026',
+      issuer: 'Technosprint Info Solutions',
+      description: 'Awarded Operational Excellence Award for outstanding contributions and performance at Technosprint Info Solutions'
     },
     { 
       title: 'C Programming', 
@@ -120,6 +140,13 @@ const Certificates = () => {
     },
     { 
       title: 'Green Olympiad', 
+      image: img12, 
+      year: '2018',
+      issuer: 'Jawahar Navodaya Vidyalaya',
+      description: 'Participated in Green Olympiad exam at JNV'
+    },
+    { 
+      title: 'Green Olympiad', 
       image: img11, 
       year: '2019',
       issuer: 'Jawahar Navodaya Vidyalaya',
@@ -131,6 +158,7 @@ const Certificates = () => {
       image: img15, 
       year: '2023',
       issuer: 'VPS Codebuilders Pvt. Ltd.',
+<<<<<<< HEAD
       description: 'Attended Trending Technologies Guidance Workshop organized by VPS Codebuilders Pvt. Ltd.'
     },
     { 
@@ -146,6 +174,9 @@ const Certificates = () => {
       year: '2025',
       issuer: 'Gard Guru',
       description: 'Attended Grad Guru webinar for innovation and career guidance'
+=======
+      description: 'Technologies guidance workshop.'
+>>>>>>> f2e865b (updated)
     }
   ];
 
@@ -184,8 +215,13 @@ const Certificates = () => {
     },
   };
 
+  const cornerStickers = [
+    { id: 'certificates', label: 'Certificates', icon: Award, ariaLabel: 'Jump to Certificates grid' },
+  ];
+
   return (
     <Layout>
+      <CornerStickers stickers={cornerStickers} initialDelay={0.5} />
       <div className="pt-24 pb-16 min-h-screen">
         {/* Hero Banner */}
         <section className="relative py-16 overflow-hidden">
@@ -231,7 +267,7 @@ const Certificates = () => {
         </section>
 
         {/* Certificates Grid */}
-        <section className="section-padding">
+        <section id="certificates" className="section-padding scroll-mt-24">
           <div className="container-custom">
             <motion.div
               variants={containerVariants}

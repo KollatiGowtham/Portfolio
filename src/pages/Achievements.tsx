@@ -1,30 +1,39 @@
 import { motion } from 'framer-motion';
-import { Trophy, Medal, Star, Sparkles } from 'lucide-react';
+import { Trophy, Medal, Star, Sparkles, BarChart3 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import SectionTitle from '@/components/ui/SectionTitle';
+import { CornerStickers } from '@/components/ui/CornerStickers';
+import achievementImg from '@/assets/achivement.png';
+import achievementImg1 from '@/assets/trophy.png';
+import achievementImg2 from '@/assets/medals.png';
+import achievementImg3 from '@/assets/star.png';
 
 const Achievements = () => {
   const achievements = [
     {
-      title: '4th Place - TechSprint Hackathon',
-      description: 'Secured 4th position with Special Jury Mention for innovative solution in the TechSprint Hackathon, competing against 100+ teams.',
+      title: 'Operational Excellence Award',
+      description: 'Honored for demonstrating strong execution, consistency, and leadership during my internship.',
       icon: Trophy,
-      year: '2024',
-      highlight: 'Special Jury Mention',
+      image: achievementImg,
+      year: '2026',
+      highlight: 'Technosprint Info Solutions',
       color: 'from-amber-500 to-orange-600',
     },
     {
-      title: '2nd Place - State-Level Athletics',
-      description: 'Won silver medal in state-level athletics competition, demonstrating dedication and athletic excellence.',
-      icon: Medal,
-      year: '2023',
-      highlight: '',
-      color: 'from-slate-400 to-slate-600',
+      title: '4th Place - TechSprint Hackathon',
+      description: 'Secured 4th position with Special Jury Mention for innovative solution in the TechSprint Hackathon, competing against 100+ teams.',
+      icon: Trophy,
+      image: achievementImg1,
+      year: '2026',
+      highlight: 'Special Jury Mention',
+      color: 'from-amber-500 to-orange-600',
     },
+  
     {
       title: 'Top 10 - IIIT Bengaluru Hackathon',
       description: 'Participated in Aya Hackathon conducted by IIIT Bengaluru, exploring innovative concepts in blockchain technology.',
       icon: Star,
+      image: achievementImg3,
       year: '2025',
       highlight: '',
       color: 'from-emerald-400 to-teal-600',
@@ -36,6 +45,15 @@ const Achievements = () => {
       year: '2025',
       highlight: '',
       color: 'from-purple-500 to-indigo-600',
+    },
+    {
+      title: '2nd Place - State-Level Athletics',
+      description: 'Won silver medal in state-level athletics competition, demonstrating dedication and athletic excellence.',
+      icon: Medal,
+      image: achievementImg2,
+      year: '2023',
+      highlight: '',
+      color: 'from-slate-400 to-slate-600',
     },
   ];
 
@@ -63,8 +81,14 @@ const Achievements = () => {
     },
   };
 
+  const cornerStickers = [
+    { id: 'achievements', label: 'Achievements', icon: Trophy, ariaLabel: 'Jump to Achievements section' },
+    { id: 'stats', label: 'Stats', icon: BarChart3, ariaLabel: 'Jump to Stats section' },
+  ];
+
   return (
     <Layout>
+      <CornerStickers stickers={cornerStickers} initialDelay={0.5} />
       <div className="pt-24 pb-16 min-h-screen">
         {/* Hero Section */}
         <section className="relative py-16 overflow-hidden">
@@ -121,7 +145,7 @@ const Achievements = () => {
         </section>
 
         {/* Achievements Section */}
-        <section className="section-padding">
+        <section id="achievements" className="section-padding scroll-mt-24">
           <div className="container-custom">
             <motion.div
               variants={containerVariants}
@@ -144,14 +168,22 @@ const Achievements = () => {
                     {/* Background decoration */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/5 to-transparent rounded-full -translate-y-1/2 translate-x-1/2" />
                     
-                    {/* Icon */}
+                    {/* Icon / Image */}
                     <div className="flex-shrink-0">
                       <motion.div 
-                        className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${achievement.color} flex items-center justify-center shadow-lg`}
+                        className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${achievement.color} flex items-center justify-center shadow-lg overflow-hidden`}
                         whileHover={{ rotate: [0, -10, 10, 0] }}
                         transition={{ duration: 0.5 }}
                       >
-                        <achievement.icon className="w-10 h-10 text-white" />
+                        {achievement.image ? (
+                          <img
+                            src={achievement.image}
+                            alt={achievement.title}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <achievement.icon className="w-10 h-10 text-white" />
+                        )}
                       </motion.div>
                     </div>
 
@@ -202,7 +234,7 @@ const Achievements = () => {
         </section>
 
         {/* Stats Section */}
-        <section className="py-16">
+        <section id="stats" className="py-16 scroll-mt-24">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
