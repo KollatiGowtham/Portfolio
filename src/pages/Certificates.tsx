@@ -155,7 +155,6 @@ const Certificates = () => {
       image: img15, 
       year: '2023',
       issuer: 'VPS Codebuilders Pvt. Ltd.',
-<<<<<<< HEAD
       description: 'Attended Trending Technologies Guidance Workshop organized by VPS Codebuilders Pvt. Ltd.'
     },
     { 
@@ -171,9 +170,7 @@ const Certificates = () => {
       year: '2025',
       issuer: 'Gard Guru',
       description: 'Attended Grad Guru webinar for innovation and career guidance'
-=======
       description: 'Technologies guidance workshop.'
->>>>>>> f2e865b (updated)
     }
   ];
 
