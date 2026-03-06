@@ -21,13 +21,10 @@ import img12 from '@/assets/certificates/greenolympiad.jpeg';
 import img13 from '@/assets/certificates/yiuth.jpeg';
 import img14 from '@/assets/certificates/workshop.jpeg';
 import img15 from '@/assets/certificates/code.jpeg';
-<<<<<<< HEAD
 import img16 from '@/assets/certificates/te.jpeg';
 import img17 from '@/assets/certificates/grad.png';
-=======
 import img16 from '@/assets/certificates/gfgcloud.jpg';
 import img17 from '@/assets/certificates/t3.jpeg';
->>>>>>> f2e865b (updated)
 const Certificates = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
