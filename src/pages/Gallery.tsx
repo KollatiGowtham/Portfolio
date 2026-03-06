@@ -24,10 +24,8 @@ import ai from '@/assets/gallery/Ai ignite poster.jpg';
 import ai1 from '@/assets/gallery/Ai ignite stage.jpg';
 import ai2 from '@/assets/gallery/Ai ignite team.jpeg';
 import ai3 from '@/assets/gallery/Ai ignite team1.jpeg';
-<<<<<<< HEAD
 import img7 from '@/assets/gallery/te.jpeg';
 import ai4 from '@/assets/gallery/ign.jpeg';
-=======
 import sicmit1 from '@/assets/gallery/sicmit/1.jpeg';
 import sicmit2 from '@/assets/gallery/sicmit/2.jpeg';
 import sicmit3 from '@/assets/gallery/sicmit/3.jpeg';
@@ -40,7 +38,7 @@ import t2 from '@/assets/gallery/t2.jpeg';
 import t3 from '@/assets/gallery/t3.jpeg';
 import t4 from '@/assets/gallery/t4.jpeg';
 import t5 from '@/assets/gallery/t5.jpeg';
->>>>>>> f2e865b (updated)
+
 
 
 
