@@ -170,7 +170,6 @@ const Certificates = () => {
       year: '2025',
       issuer: 'Gard Guru',
       description: 'Attended Grad Guru webinar for innovation and career guidance'
-      description: 'Technologies guidance workshop.'
     }
   ];
 
