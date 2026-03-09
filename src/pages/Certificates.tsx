@@ -21,9 +21,16 @@ import img12 from '@/assets/certificates/greenolympiad.jpeg';
 import img13 from '@/assets/certificates/yiuth.jpeg';
 import img14 from '@/assets/certificates/workshop.jpeg';
 import img15 from '@/assets/certificates/code.jpeg';
+<<<<<<< HEAD
 import img16 from '@/assets/certificates/gfgcloud.jpg';
 import img17 from '@/assets/certificates/t3.jpeg';
 
+=======
+import img16 from '@/assets/certificates/te.jpeg';
+import img17 from '@/assets/certificates/grad.png';
+import img16 from '@/assets/certificates/gfgcloud.jpg';
+import img17 from '@/assets/certificates/t3.jpeg';
+>>>>>>> aaeaec0fcd3b0ccb366990e08f9048e2a3b83a27
 const Certificates = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -155,6 +162,23 @@ const Certificates = () => {
       year: '2023',
       issuer: 'VPS Codebuilders Pvt. Ltd.',
       description: 'Attended Trending Technologies Guidance Workshop organized by VPS Codebuilders Pvt. Ltd.'
+<<<<<<< HEAD
+=======
+    },
+    { 
+      title: 'TechSprint Hackathon Certificate', 
+      image: img16, 
+      year: '2025',
+      issuer: 'Google Developers Club',
+      description: 'Participated in TechSprint Hackathon organized by Google Developers Club'
+    },
+    { 
+      title: 'Grad Guru Webinar for Innovation', 
+      image: img17, 
+      year: '2025',
+      issuer: 'Gard Guru',
+      description: 'Attended Grad Guru webinar for innovation and career guidance'
+>>>>>>> aaeaec0fcd3b0ccb366990e08f9048e2a3b83a27
     }
   ];
 
