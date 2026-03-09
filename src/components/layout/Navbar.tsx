@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { AlignJustify, X, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useMobileMenu } from '@/contexts/MobileMenuContext';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -15,7 +16,7 @@ const navLinks = [
 ];
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, setIsOpen } = useMobileMenu();
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const isMobile = useIsMobile();
@@ -30,7 +31,7 @@ const Navbar = () => {
 
   useEffect(() => {
     setIsOpen(false);
-  }, [location]);
+  }, [location, setIsOpen]);
 
   return (
     <nav

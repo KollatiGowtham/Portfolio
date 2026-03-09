@@ -78,7 +78,7 @@ const Contact = () => {
   return (
     <Layout>
       <CornerStickers stickers={cornerStickers} initialDelay={0.5} />
-      <div className="pt-24 pb-16">
+      <div className="pt-24 pb-16 overflow-x-hidden">
         <section id="contact" className="section-padding scroll-mt-24">
           <div className="container-custom">
             <SectionTitle

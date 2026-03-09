@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { MobileMenuProvider } from '@/contexts/MobileMenuContext';
 import Navbar from './Navbar';
 
 interface LayoutProps {
@@ -7,10 +8,12 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
-      <main className="flex-1">{children}</main>
-    </div>
+    <MobileMenuProvider>
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
+        <main className="flex-1">{children}</main>
+      </div>
+    </MobileMenuProvider>
   );
 };
 
