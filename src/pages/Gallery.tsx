@@ -24,11 +24,8 @@ import ai from '@/assets/gallery/Ai ignite poster.jpg';
 import ai1 from '@/assets/gallery/Ai ignite stage.jpg';
 import ai2 from '@/assets/gallery/Ai ignite team.jpeg';
 import ai3 from '@/assets/gallery/Ai ignite team1.jpeg';
-<<<<<<< HEAD
-=======
 import img7 from '@/assets/gallery/te.jpeg';
 import ai4 from '@/assets/gallery/ign.jpeg';
->>>>>>> aaeaec0fcd3b0ccb366990e08f9048e2a3b83a27
 import sicmit1 from '@/assets/gallery/sicmit/1.jpeg';
 import sicmit2 from '@/assets/gallery/sicmit/2.jpeg';
 import sicmit3 from '@/assets/gallery/sicmit/3.jpeg';
@@ -41,12 +38,6 @@ import t2 from '@/assets/gallery/t2.jpeg';
 import t3 from '@/assets/gallery/t3.jpeg';
 import t4 from '@/assets/gallery/t4.jpeg';
 import t5 from '@/assets/gallery/t5.jpeg';
-<<<<<<< HEAD
-=======
-
->>>>>>> aaeaec0fcd3b0ccb366990e08f9048e2a3b83a27
-
-
 
 const Gallery = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -67,11 +58,11 @@ const Gallery = () => {
     },
     {
       name: 'TechSprint Hackathon',
-      photos: [img1, img2, img3, img4, img5, img6],
+      photos: [img7,img1, img2, img3, img4, img5, img6],
     },
     {
       name: 'AI Ignite',
-      photos: [ai2, ai, ai1, ai3],
+      photos: [ai4,ai2, ai, ai1, ai3],
     },
    
   ];
