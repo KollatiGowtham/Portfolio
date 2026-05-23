@@ -117,6 +117,10 @@ export default {
           "0%": { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "200% 0" },
         },
+        "marquee": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(calc(-100% - var(--gap)))" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -130,6 +134,7 @@ export default {
         "bounce-subtle": "bounce-subtle 2s ease-in-out infinite",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
         "shimmer": "shimmer 2s linear infinite",
+        "marquee": "marquee var(--duration) linear infinite",
       },
     },
   },

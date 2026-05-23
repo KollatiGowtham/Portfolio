@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Award, ExternalLink, ZoomIn } from 'lucide-react';
+import { 
+  ZoomIn
+} from 'lucide-react';
 import Layout from '@/components/layout/Layout';
-import SectionTitle from '@/components/ui/SectionTitle';
 import ImageLightbox from '@/components/ui/ImageLightbox';
-import { CornerStickers } from '@/components/ui/CornerStickers';
+import { FocusRail, type FocusRailItem } from '@/components/ui/focus-rail';
 import img from '@/assets/certificates/IT.jpg';
 import img1 from '@/assets/certificates/DBMS.jpg';
 import img2 from '@/assets/certificates/CSA.jpg';
@@ -25,8 +26,8 @@ import img16 from '@/assets/certificates/gfgcloud.jpg';
 import img17 from '@/assets/certificates/t3.jpeg';
 import img19 from '@/assets/certificates/te.jpeg';
 import img18 from '@/assets/certificates/grad.png';
-
-
+import img20 from '@/assets/certificates/t4.jpeg';
+import img21 from '@/assets/certificates/data.png';
 
 const Certificates = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -53,6 +54,20 @@ const Certificates = () => {
       year: '2026',
       issuer: 'Technosprint Info Solutions',
       description: 'Awarded Operational Excellence Award for outstanding contributions and performance at Technosprint Info Solutions'
+    },    
+    { 
+      title: 'Pillar of Integrity - Straight Shooter', 
+      image: img20, 
+      year: '2026',
+      issuer: 'Technosprint Info Solutions',
+      description: 'Awarded the Pillar of Integrity - Straight Shooter award for upholding the highest standards of ethics, transparency, and honesty in all professional endeavors at Technosprint Info Solutions'
+    },
+        { 
+      title: 'Data Science for Beginners', 
+      image: img21, 
+      year: '2026',
+      issuer: 'Board Infinity',
+      description: 'Successfully earned a Data Science certification from Board Infinity, demonstrating proficiency in core data science concepts and practices'
     },
     { 
       title: 'C Programming', 
@@ -143,14 +158,14 @@ const Certificates = () => {
       image: img12, 
       year: '2018',
       issuer: 'Jawahar Navodaya Vidyalaya',
-      description: 'Participated in Green Olympiad exam at JNV'
+      description: 'Participated in Green Olympiad exam at JNV in 2018'
     },
     { 
       title: 'Green Olympiad', 
       image: img11, 
       year: '2019',
       issuer: 'Jawahar Navodaya Vidyalaya',
-      description: 'Participated in Green Olympiad exam at JNV'
+      description: 'Participated in Green Olympiad exam at JNV in 2019'
     },
    
     { 
@@ -177,6 +192,14 @@ const Certificates = () => {
     }
   ];
 
+  const focusItems: FocusRailItem[] = certificates.slice(0, 10).map((cert, index) => ({
+    id: index,
+    title: cert.title,
+    description: cert.description,
+    meta: `${cert.issuer} • ${cert.year}`,
+    imageSrc: cert.image,
+  }));
+
   const openLightbox = (index: number) => {
     setCurrentImageIndex(index);
     setLightboxOpen(true);
@@ -188,154 +211,83 @@ const Certificates = () => {
     title: cert.title,
   }));
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        type: 'spring' as const,
-        stiffness: 100,
-        damping: 15,
-      },
-    },
-  };
-
-  const cornerStickers = [
-    { id: 'certificates', label: 'Certificates', icon: Award, ariaLabel: 'Jump to Certificates grid' },
-  ];
-
   return (
-    <Layout>
-      <CornerStickers stickers={cornerStickers} initialDelay={0.5} />
-      <div className="pt-24 pb-16 min-h-screen">
+      <Layout>
+        <div className="pt-16 sm:pt-20 pb-8 sm:pb-12 min-h-screen">
         {/* Hero Banner */}
-        <section className="relative py-16 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/10 to-secondary/20" />
-          <motion.div 
-            className="absolute inset-0 opacity-30"
-            animate={{ 
-              backgroundPosition: ['0% 0%', '100% 100%'],
-            }}
-            transition={{ 
-              duration: 20, 
-              repeat: Infinity, 
-              repeatType: 'reverse' 
-            }}
-            style={{
-              backgroundImage: 'radial-gradient(circle at 20% 50%, hsl(var(--primary) / 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 50%, hsl(var(--accent) / 0.15) 0%, transparent 50%)',
-              backgroundSize: '100% 100%',
-            }}
-          />
-          <div className="container-custom relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center"
-            >
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
-                className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground mb-6 shadow-lg"
-              >
-                <Award className="w-10 h-10" />
-              </motion.div>
-              <h1 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">
-                My <span className="gradient-text">Certificates</span>
-              </h1>
-              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                A collection of certifications and recognitions earned through dedication and hard work
-              </p>
-            </motion.div>
+        <section className="relative pb-4 sm:pb-6 overflow-hidden">
+          <div className="container-custom">
+            <FocusRail 
+              items={focusItems} 
+              autoPlay={true} 
+              interval={3000} 
+              loop={true} 
+              className="rounded-2xl sm:rounded-[3rem]" 
+            />
           </div>
         </section>
 
         {/* Certificates Grid */}
-        <section id="certificates" className="section-padding scroll-mt-24">
+        <section id="certificates" className="py-8 sm:py-14 scroll-mt-24">
           <div className="container-custom">
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
-              className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto"
-            >
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-8">
               {certificates.map((cert, index) => (
                 <motion.div
-                  key={cert.title}
-                  variants={itemVariants}
-                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                  onClick={() => openLightbox(index)}
-                  className="group cursor-pointer"
+                  key={`${cert.title}-${cert.year}`}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  className="group glass-card overflow-hidden card-glow flex flex-col h-full"
                 >
-                  <div className="relative bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 border border-border hover:border-primary/30">
-                    {/* Image Container */}
-                    <div className="relative aspect-[4/3] overflow-hidden">
-                      <img
-                        src={cert.image}
-                        alt={cert.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      {/* Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <motion.div
-                            initial={{ scale: 0, opacity: 0 }}
-                            whileHover={{ scale: 1.1 }}
-                            className="w-14 h-14 rounded-full bg-background/95 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 shadow-lg"
-                          >
-                            <ZoomIn className="w-7 h-7 text-primary" />
-                          </motion.div>
-                        </div>
-                      </div>
-                      {/* Year Badge */}
-                      <div className="absolute top-3 right-3">
-                        <motion.span 
-                          initial={{ opacity: 0, x: 20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ delay: index * 0.1 + 0.3 }}
-                          className="px-3 py-1 bg-primary/90 backdrop-blur-sm text-primary-foreground text-xs font-semibold rounded-full shadow-md"
-                        >
-                          {cert.year}
-                        </motion.span>
-                      </div>
-                    </div>
+                  {/* Certificate Image */}
+                  <div className="relative aspect-[4/3] bg-gray-50 overflow-hidden p-2 sm:p-3 group-hover:p-1 transition-all duration-500">
+                    <img
+                      src={cert.image}
+                      alt={cert.title}
+                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
+                    />
                     
-                    {/* Content */}
-                    <div className="p-5">
-                      <h3 className="font-heading font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                    {/* Overlay Actions */}
+                    <div className="absolute inset-0 bg-background/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4">
+                      <button
+                        onClick={() => openLightbox(index)}
+                        className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-[0_0_20px_rgba(170,77,255,0.5)] hover:scale-110 transition-transform"
+                        aria-label="Zoom image"
+                      >
+                        <ZoomIn size={18} className="sm:w-5 sm:h-5" />
+                      </button>
+                    </div>
+
+                    {/* Year Badge */}
+                    <div className="absolute top-3 right-3 sm:top-4 sm:right-4 px-2 sm:px-3 py-1 bg-primary text-primary-foreground text-[8px] sm:text-[10px] font-black uppercase tracking-widest rounded-lg shadow-xl">
+                      {cert.year}
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-4 sm:p-6 flex flex-col flex-1">
+                    <div className="mb-3 sm:mb-4">
+                      <p className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-1.5 sm:mb-2 opacity-80">{cert.issuer}</p>
+                      <h3 className="font-heading font-black text-base sm:text-lg text-foreground uppercase tracking-tight leading-tight group-hover:text-primary transition-colors">
                         {cert.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground mb-2">
-                        {cert.issuer}
-                      </p>
-                      <p className="text-xs text-muted-foreground/80 line-clamp-2">
-                        {cert.description}
-                      </p>
-                      
-                      {/* View button */}
-                      <div className="mt-4 flex items-center text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                        <span>View Certificate</span>
-                        <ExternalLink className="w-4 h-4 ml-2" />
-                      </div>
                     </div>
+                    
+                    <p className="text-[11px] sm:text-xs text-muted-foreground leading-relaxed line-clamp-2 mb-4 sm:mb-6 flex-1">
+                      {cert.description}
+                    </p>
+
+                    <button
+                      onClick={() => openLightbox(index)}
+                      className="w-full py-2.5 sm:py-3 bg-gray-50 border border-gray-200 rounded-lg sm:rounded-xl text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground group-hover:text-primary group-hover:border-primary/50 transition-all"
+                    >
+                      View Full Document
+                    </button>
                   </div>
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
 
             {/* Empty State Hint */}
             <motion.p
@@ -343,7 +295,7 @@ const Certificates = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
-              className="text-center text-muted-foreground/60 text-sm mt-12"
+              className="text-center text-muted-foreground/60 text-sm mt-8"
             >
               Click on any certificate to view in full size
             </motion.p>
