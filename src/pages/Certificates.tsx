@@ -28,6 +28,7 @@ import img19 from '@/assets/certificates/te.jpeg';
 import img18 from '@/assets/certificates/grad.png';
 import img20 from '@/assets/certificates/t4.jpeg';
 import img21 from '@/assets/certificates/data.png';
+import img22 from '@/assets/certificates/Experience.jpg';
 
 const Certificates = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -61,6 +62,13 @@ const Certificates = () => {
       year: '2026',
       issuer: 'Technosprint Info Solutions',
       description: 'Awarded the Pillar of Integrity - Straight Shooter award for upholding the highest standards of ethics, transparency, and honesty in all professional endeavors at Technosprint Info Solutions'
+    },
+        { 
+      title: 'Experience certificate from Technosprint Info Solutions', 
+      image: img22, 
+      year: '2026',
+      issuer: 'Technosprint Info Solutions',
+      description: 'Received an experience certificate recognizing 20 months of continuous dedicated work at Technosprint Info Solutions. Grateful for the invaluable learning opportunities, mentorship, and professional growth during my tenure. Thank you for the incredible journey and support!'
     },
         { 
       title: 'Data Science for Beginners', 

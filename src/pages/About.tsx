@@ -49,7 +49,7 @@ const About = () => {
     {
       title: 'Associate Trainee',
       company: 'TechnoSprint Info Solutions',
-      period: 'Dec 2024 – Jun 2025',
+      period: 'Dec 2024 – Jul 2026',
       location: 'Remote / Chennai',
       responsibilities: [
         'Lead the development of responsive web interfaces using React and modern CSS architectures.',

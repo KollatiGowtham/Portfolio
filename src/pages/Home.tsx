@@ -13,6 +13,7 @@ import profileImage from '@/assets/profile.jpeg';
 import achievementAwardImg from '@/assets/achivement.png';
 import pillarOfIntegrityImg from '@/assets/certificates/t4.jpeg';
 import internshipCertificateImg from '@/assets/gallery/t3.jpeg';
+import experienceCertificateImg from '@/assets/certificates/Experience.jpg';
 
 // Import project assets for preview
 import coldmailImg from '@/assets/projects/coldmail.png';
@@ -28,6 +29,7 @@ import appreciationCert from '@/assets/certificates/TS.png';
 import f1 from '@/assets/certificates/data.png';
 import f2 from '@/assets/certificates/Deliotte.jpg';
 import f3 from '@/assets/certificates/Agile.jpg';
+
 
 // Import gallery assets for preview
 import sicmit1 from '@/assets/gallery/ben8.jpeg';
@@ -606,8 +608,15 @@ const Home = () => {
                       viewport={{ once: true }}
                       className="inline-flex items-center gap-3 px-5 py-2.5 bg-[#2D5A9E]/5 border border-[#2D5A9E]/10 rounded-full"
                     >
-                      <Award className="w-4 h-4 text-[#2D5A9E]" />
-                      <span className="text-[10px] sm:text-xs font-black uppercase tracking-[0.25em] text-[#2D5A9E]">Professional Journey</span>
+                      <div className="w-7 h-7 rounded-full bg-white border border-[#2D5A9E]/10 flex items-center justify-center overflow-hidden">
+                        <svg viewBox="0 0 64 64" className="w-5 h-5" role="img" aria-label="F4 logo">
+                          <path
+                            d="M10 18h30v8H18v6h20v8H18v14h-8V18zm44 0h-8l-8 12v6h16v8H38v20h8V44h8v-8h-8V30l8-12z"
+                            fill="#2D5A9E"
+                          />
+                        </svg>
+                      </div>
+                      <span className="text-[10px] sm:text-xs font-black uppercase tracking-[0.25em] text-[#2D5A9E]">Professional Experience</span>
                     </motion.div>
 
                     <motion.div
@@ -616,9 +625,10 @@ const Home = () => {
                       viewport={{ once: true }}
                       transition={{ delay: 0.2 }}
                     >
-                      <h2 className="font-heading text-4xl sm:text-6xl md:text-7xl font-black text-[#2D5A9E] mb-6 leading-[0.9] tracking-tighter uppercase">
-                        Associate <br />
-                        <span className="text-[#2D5A9E]/60 italic underline decoration-[#2D5A9E]/10 decoration-8 underline-offset-4">Trainee.</span>
+                      <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-black text-[#2D5A9E] mb-6 leading-[0.9] tracking-tighter uppercase">
+                        TechnoSprint <br />
+                        <span className="text-[#2D5A9E]/60 italic underline decoration-[#2D5A9E]/10 decoration-8 underline-offset-4">Info</span> <br />
+                        <span className="text-[#2D5A9E]/60 italic underline decoration-[#2D5A9E]/10 decoration-8 underline-offset-4">Solutions.</span>
                       </h2>
                     </motion.div>
 
@@ -630,13 +640,25 @@ const Home = () => {
                       className="space-y-6 text-gray-600"
                     >
                       <p className="text-lg sm:text-xl leading-relaxed font-medium">
-                        During my internship at <span className="text-[#2D5A9E] font-black">TechnoSprint Info Solutions</span>, I focused on high-impact execution and consistency.
+                        I’ve completed my internship and now bring <span className="text-[#2D5A9E] font-black">20 months</span> of hands-on professional experience in building production-ready systems.
                       </p>
                       <p className="text-base sm:text-lg leading-relaxed font-medium">
-                        I was honored with the <span className="text-[#2D5A9E] font-bold italic underline decoration-[#2D5A9E]/20">Operational Excellence Award</span> and the 
-                        <span className="text-[#2D5A9E] font-bold italic underline decoration-[#2D5A9E]/20 ml-1">Pillar of Integrity Award</span> for 
-                        exceptional professional ethics.
+                        My foundation was shaped at <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2D5A9E]/10 border border-[#2D5A9E]/15 text-[#2D5A9E] font-black">TechnoSprint Info Solutions</span>, where I earned the <span className="text-[#2D5A9E] font-bold italic underline decoration-[#2D5A9E]/20">Operational Excellence Award</span> and the <span className="text-[#2D5A9E] font-bold italic underline decoration-[#2D5A9E]/20">Pillar of Integrity Award</span>.
                       </p>
+                      <ul className="space-y-3 text-sm sm:text-base leading-relaxed font-medium">
+                        <li>
+                          <span className="text-[#2D5A9E] font-black uppercase tracking-[0.2em] text-[10px] sm:text-xs mr-2">Built</span>
+                          Full-stack features, clean UI flows, and reliable API integrations.
+                        </li>
+                        <li>
+                          <span className="text-[#2D5A9E] font-black uppercase tracking-[0.2em] text-[10px] sm:text-xs mr-2">Delivered</span>
+                          Production-focused delivery with performance, maintainability, and accessibility in mind.
+                        </li>
+                        <li>
+                          <span className="text-[#2D5A9E] font-black uppercase tracking-[0.2em] text-[10px] sm:text-xs mr-2">Technologies</span>
+                          React, Node.js, SQL, AWS, and automation-first tooling.
+                        </li>
+                      </ul>
                     </motion.div>
 
                     <motion.div 
@@ -647,12 +669,12 @@ const Home = () => {
                       className="flex flex-wrap gap-8 sm:gap-12 pt-4"
                     >
                       <div className="flex flex-col">
-                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#2D5A9E]/40 mb-2">Company</span>
-                        <span className="text-sm sm:text-base font-black text-[#2D5A9E] uppercase tracking-tight">TechnoSprint Info Solutions</span>
+                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#2D5A9E]/40 mb-2">Experience</span>
+                        <span className="text-sm sm:text-base font-black text-[#2D5A9E] uppercase tracking-tight">20 Months</span>
                       </div>
                       <div className="flex flex-col">
                         <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#2D5A9E]/40 mb-2">Recognition</span>
-                        <span className="text-sm sm:text-base font-black text-[#2D5A9E] uppercase tracking-tight">2x Special Awards</span>
+                        <span className="text-sm sm:text-base font-black text-[#2D5A9E] uppercase tracking-tight">2x Awards</span>
                       </div>
                     </motion.div>
                   </div>
@@ -677,7 +699,7 @@ const Home = () => {
                         className="rounded-2xl sm:rounded-3xl overflow-hidden border-4 border-white shadow-[0_20px_50px_rgba(0,0,0,0.1)] relative z-20 group/img1"
                       >
                         <div className="absolute inset-0 bg-[#2D5A9E]/10 opacity-0 group-hover/img1:opacity-100 transition-opacity z-10" />
-                        <img src={internshipCertificateImg} alt="Certificate" className="w-full h-full object-cover" />
+                        <img src={internshipCertificateImg} alt="Internship certificate" className="w-full h-full object-cover" loading="lazy" />
                       </motion.div>
 
                       <motion.div
@@ -694,9 +716,28 @@ const Home = () => {
                         className="rounded-2xl sm:rounded-3xl overflow-hidden border-4 border-white shadow-[0_20px_50px_rgba(0,0,0,0.1)] relative z-10 mt-12 sm:mt-16 group/img2"
                       >
                         <div className="absolute inset-0 bg-[#2D5A9E]/10 opacity-0 group-hover/img2:opacity-100 transition-opacity z-10" />
-                        <img src={pillarOfIntegrityImg} alt="Certificate" className="w-full h-full object-cover" />
+                        <img src={pillarOfIntegrityImg} alt="Pillar of Integrity award certificate" className="w-full h-full object-cover" loading="lazy" />
                       </motion.div>
                     </div>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 18 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.15 }}
+                      whileHover={{ scale: 1.02, y: -6 }}
+                      className="mt-6 sm:mt-8 rounded-2xl sm:rounded-3xl overflow-hidden border-4 border-white shadow-[0_30px_90px_rgba(0,0,0,0.18)] bg-white transition-transform duration-700"
+                    >
+                      <div className="w-full bg-white relative">
+                        <img
+                          src={experienceCertificateImg}
+                          alt="Experience certificate"
+                          className="w-full h-auto object-cover contrast-[1.05] saturate-[1.03]"
+                          loading="lazy"
+                        />
+                        <div className="pointer-events-none absolute inset-0 bg-[#2D5A9E]/10 opacity-0 group-hover/images:opacity-100 transition-opacity duration-700" />
+                      </div>
+                    </motion.div>
                   </div>
                 </div>
               </div>
